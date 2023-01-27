@@ -1,3 +1,12 @@
-Cold and dry, but everything is my favorite color.
-The two moons may be a problem for the Wolfman
-But the Mummy will appreciate the lack of humidity.
+#!/bin/bash -l
+# ----------------SLURM Parameters----------------
+#SBATCH -p pi.ejmctavish
+#SBATCH -n 1
+#SBATCH --mem=1g
+#SBATCH -N 1
+#SBATCH --mail-type=ALL
+# ----------------Load Modules--------------------
+module load anaconda3
+# ----------------Commands------------------------
+source activate TTR_env
+./extensiphy.sh -a ./testdata/combo.fas -d ./testdata -1 _R1.fq -2 _R2.fq -u PHYLO -o EP_output
